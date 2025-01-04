@@ -1,0 +1,24 @@
+name: ROS 2 CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up ROS 2
+        run: |
+          sudo apt update && sudo apt install -y curl gnupg2 lsb-release
+          curl -sSL https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos > ros2.repos
+          vcs import src < ros2.repos
+          sudo apt install python3-colcon-common-extensions
+          colcon build
+
+      - name: Test with colcon
+        run: colcon test
