@@ -1,0 +1,35 @@
+running egg_info
+creating ../../build/clock_node/clock_node.egg-info
+writing ../../build/clock_node/clock_node.egg-info/PKG-INFO
+writing dependency_links to ../../build/clock_node/clock_node.egg-info/dependency_links.txt
+writing entry points to ../../build/clock_node/clock_node.egg-info/entry_points.txt
+writing requirements to ../../build/clock_node/clock_node.egg-info/requires.txt
+writing top-level names to ../../build/clock_node/clock_node.egg-info/top_level.txt
+writing manifest file '../../build/clock_node/clock_node.egg-info/SOURCES.txt'
+reading manifest file '../../build/clock_node/clock_node.egg-info/SOURCES.txt'
+writing manifest file '../../build/clock_node/clock_node.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/yuma0825/ros2_ws/build/clock_node/build
+creating /home/yuma0825/ros2_ws/build/clock_node/build/lib
+creating /home/yuma0825/ros2_ws/build/clock_node/build/lib/clock_node
+copying clock_node/clock_service.py -> /home/yuma0825/ros2_ws/build/clock_node/build/lib/clock_node
+copying clock_node/__init__.py -> /home/yuma0825/ros2_ws/build/clock_node/build/lib/clock_node
+running install
+running install_lib
+creating /home/yuma0825/ros2_ws/install/clock_node/lib/python3.8/site-packages/clock_node
+copying /home/yuma0825/ros2_ws/build/clock_node/build/lib/clock_node/clock_service.py -> /home/yuma0825/ros2_ws/install/clock_node/lib/python3.8/site-packages/clock_node
+copying /home/yuma0825/ros2_ws/build/clock_node/build/lib/clock_node/__init__.py -> /home/yuma0825/ros2_ws/install/clock_node/lib/python3.8/site-packages/clock_node
+byte-compiling /home/yuma0825/ros2_ws/install/clock_node/lib/python3.8/site-packages/clock_node/clock_service.py to clock_service.cpython-38.pyc
+byte-compiling /home/yuma0825/ros2_ws/install/clock_node/lib/python3.8/site-packages/clock_node/__init__.py to __init__.cpython-38.pyc
+running install_data
+creating /home/yuma0825/ros2_ws/install/clock_node/share/ament_index
+creating /home/yuma0825/ros2_ws/install/clock_node/share/ament_index/resource_index
+creating /home/yuma0825/ros2_ws/install/clock_node/share/ament_index/resource_index/packages
+copying resource/clock_node -> /home/yuma0825/ros2_ws/install/clock_node/share/ament_index/resource_index/packages
+copying package.xml -> /home/yuma0825/ros2_ws/install/clock_node/share/clock_node
+running install_egg_info
+Copying ../../build/clock_node/clock_node.egg-info to /home/yuma0825/ros2_ws/install/clock_node/lib/python3.8/site-packages/clock_node-0.0.0-py3.8.egg-info
+running install_scripts
+Installing clock_service script to /home/yuma0825/ros2_ws/install/clock_node/lib/clock_node
+writing list of installed files to '/home/yuma0825/ros2_ws/build/clock_node/install.log'
