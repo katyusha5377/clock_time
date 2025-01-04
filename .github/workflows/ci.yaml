@@ -1,38 +1,40 @@
-name: ROS 2 CI
+name: ROS 2 Build and Test
 
 on:
   push:
     branches:
-      - main  # mainブランチへのpushでCIが実行される
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
-    runs-on: ubuntu-20.04  # Ubuntu 20.04を使用
+    runs-on: ubuntu-20.04
+
+    strategy:
+      matrix:
+        ros-distro: [foxy]
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2  # リポジトリのコードを取得
+        uses: actions/checkout@v2
 
-      - name: Set up ROS 2 and dependencies
+      - name: Set up ROS 2
+        uses: ros-tooling/setup-ros@v0.1
+        with:
+          use-ros2-testing: true
+          ros-distro: foxy
+
+      - name: Install dependencies
         run: |
-          # ROS 2のインストール準備
-          sudo apt update && sudo apt install -y \
-            curl gnupg2 lsb-release build-essential cmake git python3-colcon-common-extensions python3-pip python3-rosdep python3-vcstool python3-rosinstall \
-            python3-pytest
+          sudo apt update
+          sudo apt install -y python3-colcon-common-extensions python3-vcstool
 
-          # ROS 2 Humbleリポジトリを取得
-          curl -sSL https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos > ros2.repos
-          vcs import src < ros2.repos  # ソースコードを取得
-
-          # rosdepの初期化と更新
-          sudo rosdep init
-          rosdep update
-
-          # ROS 2のビルド
-          colcon build --symlink-install  # シンボリックリンクでビルド
-
-      - name: Run tests
+      - name: Build and test
         run: |
-          # ビルド後にテストを実行
-          colcon test
+          source /opt/ros/foxy/setup.bash
+          colcon build
+          colcon test --packages-select clock
+          colcon test-result --verbose
 
