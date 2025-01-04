@@ -19,7 +19,13 @@ jobs:
       - name: Set up ROS 2
         uses: ros-tooling/setup-ros@v0.1
         with:
-          use-ros2-testing: true   # 正しい引数を設定
+          use-ros2-testing: true  # 正しい引数を設定
+
+      - name: Add ROS 2 Repositories
+        run: |
+          curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+          sudo bash -c "echo 'deb http://packages.ros.org/ros/ubuntu focal main' > /etc/apt/sources.list.d/ros-latest.list"
+          sudo bash -c "echo 'deb http://packages.ros.org/ros2-testing/ubuntu focal main' > /etc/apt/sources.list.d/ros2-latest.list"
           
       - name: Install dependencies
         run: |
@@ -32,5 +38,4 @@ jobs:
         run: |
           cd ~/ros2_ws
           colcon build --symlink-install
-
 
