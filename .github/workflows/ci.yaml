@@ -3,22 +3,32 @@ name: ROS 2 CI
 on:
   push:
     branches:
-      - main
+      - main  # mainブランチへのpushでCIが実行される
 
 jobs:
   build:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-20.04  # Ubuntu 20.04を使用
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2  # リポジトリのコードを取得
 
-      - name: Set up ROS 2
+      - name: Set up ROS 2 on Ubuntu 20.04
         run: |
-          sudo apt update && sudo apt install -y curl gnupg2 lsb-release
-          curl -sSL https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos > ros2.repos
-          vcs import src < ros2.repos
-          sudo apt install python3-colcon-common-extensions
-          colcon build
+          # ROS 2 Humbleインストールに必要な依存関係をインストール
+          sudo apt update && sudo apt install -y curl gnupg2 lsb-release build-essential cmake git python3-colcon-common-extensions python3-pip python3-rosdep python3-vcstool python3-rosinstall
 
-      - name: Test with colcon
-        run: colcon test
+          # ROS 2 Humbleのセットアップ
+          curl -sSL https://raw.githubusercontent.com/ros2/ros2/master/ros2.repos > ros2.repos
+          vcs import src < ros2.repos  # ソースコードを取得
+
+          # rosdepの初期化と更新
+          sudo rosdep init
+          rosdep update
+
+          # ROS 2のパッケージをビルド
+          colcon build --symlink-install  # `--symlink-install`でシンボリックリンクを使ったインストール
+
+      - name: Run tests with colcon
+        run: colcon test  # ビルド後にテストを実行
+
