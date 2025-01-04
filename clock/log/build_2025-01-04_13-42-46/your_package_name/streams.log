@@ -1,0 +1,33 @@
+[0.594s] Invoking command in '/home/yuma0825/ros2_ws/src/your_package_name': PYTHONPATH=/home/yuma0825/ros2_ws/build/your_package_name/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yuma0825/ros2_ws/install/your_package_name/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/your_package_name build --build-base /home/yuma0825/ros2_ws/build/your_package_name/build install --record /home/yuma0825/ros2_ws/build/your_package_name/install.log --install-scripts $base/lib/your_package_name --single-version-externally-managed install_data
+[0.753s] running egg_info
+[0.753s] creating ../../build/your_package_name/your_package_name.egg-info
+[0.753s] writing ../../build/your_package_name/your_package_name.egg-info/PKG-INFO
+[0.754s] writing dependency_links to ../../build/your_package_name/your_package_name.egg-info/dependency_links.txt
+[0.754s] writing entry points to ../../build/your_package_name/your_package_name.egg-info/entry_points.txt
+[0.754s] writing requirements to ../../build/your_package_name/your_package_name.egg-info/requires.txt
+[0.754s] writing top-level names to ../../build/your_package_name/your_package_name.egg-info/top_level.txt
+[0.759s] writing manifest file '../../build/your_package_name/your_package_name.egg-info/SOURCES.txt'
+[0.781s] reading manifest file '../../build/your_package_name/your_package_name.egg-info/SOURCES.txt'
+[0.782s] writing manifest file '../../build/your_package_name/your_package_name.egg-info/SOURCES.txt'
+[0.782s] running build
+[0.782s] running build_py
+[0.782s] creating /home/yuma0825/ros2_ws/build/your_package_name/build
+[0.782s] creating /home/yuma0825/ros2_ws/build/your_package_name/build/lib
+[0.783s] creating /home/yuma0825/ros2_ws/build/your_package_name/build/lib/your_package_name
+[0.783s] copying your_package_name/__init__.py -> /home/yuma0825/ros2_ws/build/your_package_name/build/lib/your_package_name
+[0.783s] running install
+[0.784s] running install_lib
+[0.784s] creating /home/yuma0825/ros2_ws/install/your_package_name/lib/python3.8/site-packages/your_package_name
+[0.785s] copying /home/yuma0825/ros2_ws/build/your_package_name/build/lib/your_package_name/__init__.py -> /home/yuma0825/ros2_ws/install/your_package_name/lib/python3.8/site-packages/your_package_name
+[0.785s] byte-compiling /home/yuma0825/ros2_ws/install/your_package_name/lib/python3.8/site-packages/your_package_name/__init__.py to __init__.cpython-38.pyc
+[0.787s] running install_data
+[0.787s] creating /home/yuma0825/ros2_ws/install/your_package_name/share/ament_index
+[0.787s] creating /home/yuma0825/ros2_ws/install/your_package_name/share/ament_index/resource_index
+[0.788s] creating /home/yuma0825/ros2_ws/install/your_package_name/share/ament_index/resource_index/packages
+[0.789s] copying resource/your_package_name -> /home/yuma0825/ros2_ws/install/your_package_name/share/ament_index/resource_index/packages
+[0.789s] copying package.xml -> /home/yuma0825/ros2_ws/install/your_package_name/share/your_package_name
+[0.789s] running install_egg_info
+[0.790s] Copying ../../build/your_package_name/your_package_name.egg-info to /home/yuma0825/ros2_ws/install/your_package_name/lib/python3.8/site-packages/your_package_name-0.0.0-py3.8.egg-info
+[0.790s] running install_scripts
+[0.801s] writing list of installed files to '/home/yuma0825/ros2_ws/build/your_package_name/install.log'
+[0.824s] Invoked command in '/home/yuma0825/ros2_ws/src/your_package_name' returned '0': PYTHONPATH=/home/yuma0825/ros2_ws/build/your_package_name/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/yuma0825/ros2_ws/install/your_package_name/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/your_package_name build --build-base /home/yuma0825/ros2_ws/build/your_package_name/build install --record /home/yuma0825/ros2_ws/build/your_package_name/install.log --install-scripts $base/lib/your_package_name --single-version-externally-managed install_data
