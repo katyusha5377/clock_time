@@ -13,18 +13,14 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
-      # GitHub Actionsからリポジトリのコードを取得する
-      - name: Check out code
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      # ROS 2のセットアップ
       - name: Set up ROS 2
         uses: ros-tooling/setup-ros@v0.1
         with:
-          ros-distro: foxy
-          package-name: 'desktop'   # 必要に応じて 'desktop' を変える
-
-      # 依存関係のインストール
+          use-ros2-testing: true   # 正しい引数を設定
+          
       - name: Install dependencies
         run: |
           sudo apt update
@@ -32,9 +28,9 @@ jobs:
           sudo rosdep init
           rosdep update
 
-      # ワークスペースのビルド
       - name: Build ROS 2 Workspace
         run: |
           cd ~/ros2_ws
           colcon build --symlink-install
+
 
