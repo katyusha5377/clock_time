@@ -1,0 +1,33 @@
+name: ROS 2 Build and Test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v2
+
+    - name: Set up ROS 2
+      uses: ros-tooling/setup-ros@v0.2
+      with:
+        distribution: foxy
+        workspace: ${{ github.workspace }}/ros2_ws
+
+    - name: Build ROS 2 workspace
+      run: |
+        source /opt/ros/foxy/setup.bash
+        colcon build --symlink-install
+
+    - name: Run tests
+      run: |
+        source /opt/ros/foxy/setup.bash
+        colcon test
